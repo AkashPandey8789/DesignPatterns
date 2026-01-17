@@ -11,3 +11,9 @@ paymentHandler.SetNextHandler(shippmentHandler);
 discountHandler.Process(order);
 
 Console.WriteLine("Order processing completed.");
+
+//Mediator pattern
+
+Passenger p = new Passenger("Radha", "Mathura", new TaxiDispatcher());
+
+p.RideRequest();
