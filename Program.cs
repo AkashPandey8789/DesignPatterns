@@ -17,3 +17,12 @@ Console.WriteLine("Order processing completed.");
 Passenger p = new Passenger("Radha", "Mathura", new TaxiDispatcher());
 
 p.RideRequest();
+
+//Strategy Pattern
+
+IPayment payment = new Cash();
+
+Payment paymentContext = new Payment();
+
+paymentContext.SelectPaymentMethod(payment);
+paymentContext.CompletePayment();
