@@ -26,3 +26,14 @@ Payment paymentContext = new Payment();
 
 paymentContext.SelectPaymentMethod(payment);
 paymentContext.CompletePayment();
+
+//Observer pattern
+
+ISubject subject = new Subject();
+
+Observer observer = new Observer(subject, "Ram");
+Observer ob2 = new Observer(subject, "Sita");
+observer.NotifyMe();
+ob2.NotifyMe();
+
+subject.NotifyObserver();
