@@ -2,6 +2,7 @@ public sealed class Singleton
 {
     private static Singleton _singleton;
 
+    private static readonly object InstanceLock = new object();
     private static int counter = 0;
 
     private Singleton()
@@ -12,10 +13,13 @@ public sealed class Singleton
 
     public static Singleton GetInstance()
     {
-        if (_singleton == null)
+        lock(InstanceLock)
         {
-            _singleton = new Singleton();
-            //return new Singleton();
+            if (_singleton == null)
+            {
+                _singleton = new Singleton();
+                //return new Singleton();
+            }
         }
         return _singleton;
     }
