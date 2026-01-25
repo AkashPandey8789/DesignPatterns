@@ -13,12 +13,15 @@ public sealed class Singleton
 
     public static Singleton GetInstance()
     {
-        lock(InstanceLock)
+        if (_singleton == null) //this check will allow multi-threading once the instance is created by any one thread...
         {
-            if (_singleton == null)
+            lock (InstanceLock) //this slows the system as only one thread can access the instance at once....
             {
-                _singleton = new Singleton();
-                //return new Singleton();
+                if (_singleton == null)  // if the instance is not created we are checking just to be safe in meantime no other thread created instance
+                {
+                    _singleton = new Singleton();
+                    //return new Singleton();
+                }
             }
         }
         return _singleton;
