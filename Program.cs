@@ -37,3 +37,26 @@ observer.NotifyMe();
 ob2.NotifyMe();
 
 subject.NotifyObserver();
+
+//Singleton
+
+Parallel.Invoke(
+    () => FirstCall(),
+    () => SecondCall()
+);
+
+void FirstCall()
+{
+    Singleton singleton = Singleton.GetInstance();
+
+    singleton.Print("Akash says hi!!");
+}
+
+void SecondCall()
+{
+    Singleton singleton2 = Singleton.GetInstance();
+    singleton2.Print("Now bye");
+}
+
+
+
