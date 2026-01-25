@@ -4,7 +4,8 @@ public sealed class Singleton
 
     // private static readonly object InstanceLock = new object();
 
-    private static Lazy<Singleton> singleton = new Lazy<Singleton>(() => new Singleton());
+    //private static Lazy<Singleton> singleton = new Lazy<Singleton>(() => new Singleton());
+    private static Singleton _singleton = new Singleton(); // eager loading 
     private static int counter = 0;
 
     private Singleton()
@@ -15,7 +16,7 @@ public sealed class Singleton
 
     public static Singleton GetInstance()
     {
-        return singleton.Value;
+        return _singleton;
     }
     // public static Singleton GetInstance()
     // {
