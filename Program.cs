@@ -58,5 +58,14 @@ void SecondCall()
     singleton2.Print("Now bye");
 }
 
+//Factory - Method pattern
+
+CreditCards card = new TitaniumFactory().CreateCreaditCard();
+
+card.GetType();
+
+CreditCards card2 = new CashBackFactory().CreateCreaditCard();
+card2.GetType();
+
 
 
