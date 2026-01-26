@@ -67,5 +67,15 @@ card.GetType();
 CreditCards card2 = new CashBackFactory().CreateCreaditCard();
 card2.GetType();
 
+//Abstract Factory 
+ICourseSourceFactory abstractFactory = new BackendOnlineFactory();
+ICourse backend = abstractFactory.GetCourse();
+ISource source = abstractFactory.GetSource();
+
+backend.GetCourseDetails();
+source.GetCourseSource();
+
+
+
 
 
